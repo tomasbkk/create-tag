@@ -15,7 +15,7 @@ inputs:
     description: 'Tag message'
     required: true
   semanticVersion:
-    description: 'Whether to check for semantic version format (true/false)'
+    description: 'Whether to check for semantic version format (true / false)'
     required: true
 runs:
   using: 'node12'
