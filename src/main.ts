@@ -40,7 +40,8 @@ async function run(): Promise<void> {
 
     core.info(`Tagged ${tag_rsp.data.sha} as ${tag}`)
   } catch (error) {
-    core.setFailed(error.message)
+      const unknownError: Error = error as Error;
+      core.setFailed(unknownError.message);
   }
 }
 
