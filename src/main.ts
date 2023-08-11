@@ -4,11 +4,13 @@ import * as semver from 'semver'
 
 async function run(): Promise<void> {
   try {
-    const tag = core.getInput('version')
-    if (semver.valid(tag) == null) {
+    const tag = core.getInput('version');
+    const checkSemanticVersion = core.getInput('semanticVersion').toLowerCase() === 'true';
+
+    if (checkSemanticVersion && semver.valid(tag) == null) {
       core.setFailed(
         `Tag ${tag} does not appear to be a valid semantic version`
-      )
+      );
       return
     }
 
